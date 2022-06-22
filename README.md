@@ -1,1 +1,1 @@
-# Gulp JS Template
+# Snikpic
