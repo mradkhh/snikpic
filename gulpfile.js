@@ -11,16 +11,11 @@ const autoprefixer = require('gulp-autoprefixer');
 const newer = require('gulp-newer');
 const size = require('gulp-size');
 const browsersync = require('browser-sync').create();
-const gulppug = require('gulp-pug');
 const del = require('del');
 
 const paths = {
-  pug: {
-    src: 'src/*.pug',
-    dest: 'build/',
-  },
   html: {
-    src: 'src/*.html',
+    src: ['src/*.html', 'src/html/*.html'],
     dest: 'build/',
   },
   styles: {
@@ -36,13 +31,6 @@ const paths = {
     dest: 'build/assets/images',
   }
 };
-
-function pug() {
-  return src(paths.pug.src)
-    .pipe(gulppug())
-    .pipe(dest(paths.pug.dest))
-    .pipe(browsersync.stream());
-}
 
 function html() {
   return src(paths.html.src)
@@ -139,7 +127,6 @@ function watching() {
   });
   watch(paths.html.dest).on('change', browsersync.reload);
   watch(paths.html.src, html);
-  watch(paths.pug.src, pug);
   watch(paths.styles.src, styles);
   watch(paths.styles.src, styles);
   watch(paths.images.src, images);
@@ -147,7 +134,7 @@ function watching() {
 
 const start = series(
   clear,
-  parallel(html,pug),
+  parallel(html),
   parallel(styles, scripts, images),
   srcSize,
   buildSize,
@@ -155,7 +142,7 @@ const start = series(
 );
 const build = series(
   clearFull,
-  parallel(html,pug),
+  parallel(html),
   parallel(styles, scripts, images),
   srcSize,
   buildSize,
