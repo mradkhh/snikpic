@@ -1,0 +1,52 @@
+#section__categories {
+  .categories {
+    background: #fdf9f8;
+    padding: 50px;
+    &Tabs {
+      gap: 48px;
+      margin-bottom: 64px;
+
+      &__item {
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 24px;
+        color: $primary2;
+      }
+    }
+
+    &Content {
+      .createInfo {
+        &__title {
+          max-width: 400px;
+          width: 100%;
+          margin-bottom: 24px;
+        }
+        &__subtitle {
+          max-width: 400px;
+          width: 100%;
+          margin-bottom: 32px;
+        }
+
+        &__replaces {
+          &Title {
+            font-weight: 400;
+            font-size: 14px;
+            color: $grayDark;
+            margin-bottom: 8px;
+          }
+
+          &Items {
+            margin-bottom: 40px;
+            gap: 32px;
+            > h4 {
+              font-weight: 600;
+              font-size: 18px;
+              color: #1D2736;
+              line-height: 180%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

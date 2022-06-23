@@ -1,0 +1,51 @@
+#section__hero {
+  padding-block: 70px;
+
+  .hero {
+    padding: 50px;
+    &Info {
+      &__title {
+        & span:first-child {
+          color: $primary2;
+        }
+
+        & span:last-child {
+          color: $primary;
+        }
+      }
+
+      &__subtitle {
+        margin-bottom: 32px;
+      }
+
+      &__form {
+        max-width: 370px;
+        width: 100%;
+        margin-bottom: 32px;
+        &Action {
+          gap: 30px;
+          &-text {
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 146%;
+            color: #bbc0c7;
+          }
+        }
+      }
+
+      &__rating {
+        gap: 20px;
+        margin-bottom: 16px;
+
+        > p {
+          font-weight: 400;
+          font-size: 15px;
+        }
+      }
+
+      &__partners {
+        padding-right: 30px;
+      }
+    }
+  }
+}

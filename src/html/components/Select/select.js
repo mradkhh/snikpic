@@ -1,46 +1,3 @@
-// Mobile burger menu
-function burgerMenu() {
-  const burger = document.querySelector('.burger')
-  const menu = document.querySelector('.menu')
-  const body = document.querySelector('body')
-
-  burger.addEventListener('click', () => {
-    if (!menu.classList.contains('active')) {
-      menu.classList.add('active')
-      burger.classList.add('active-burger')
-      body.classList.add('locked')
-    } else {
-      menu.classList.remove('active')
-      burger.classList.remove('active-burger')
-      body.classList.remove('locked')
-    }
-  })
-  // Breakpoint
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 991.98) {
-      menu.classList.remove('active')
-      burger.classList.remove('active-burger')
-      body.classList.remove('locked')
-    }
-  })
-}
-burgerMenu()
-
-function fixedNav() {
-  const nav = document.querySelector('nav')
-
-  const breakpoint = 1
-  if (window.screenY >= breakpoint) {
-    nav.classList.add('fixed__nav')
-  } else {
-    nav.classList.remove('fixed__nav')
-  }
-}
-window.addEventListener('scroll', fixedNav)
-
-
-
-
 // Select
 const getTemplate = (data = [], placeholder, selectedId) => {
   let text = placeholder ?? 'placehol'
@@ -96,6 +53,18 @@ class Select {
     this.$value = this.$el.querySelector('[data-type="value"]')
   }
 
+  clickHandler(event) {
+    const { type } = event.target.dataset
+    if (type === 'input') {
+      this.toggle()
+    } else if ( type === 'item' ) {
+      const id = event.target.dataset.id
+      this.select(id)
+    } else if (type === 'backdrop') {
+      this.close()
+    }
+  }
+
   get isOpen() {
     return this.$el.classList.contains('open')
   }
@@ -130,11 +99,10 @@ class Select {
   }
 
   destroy() {
-    this.$el.removeEventListener('click', this.clickHandler)
+    this.$el.removeEventListener('click', this.clickHandler())
     this.$el.innerHTML = ''
   }
 }
-
 
 const select = new Select('#select', {
   placeholder: 'Select element',

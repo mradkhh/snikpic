@@ -15,7 +15,7 @@ const del = require('del');
 
 const paths = {
   html: {
-    src: ['src/*.html', 'src/html/*.html'],
+    src: ['src/**/*.html'],
     dest: 'build/',
   },
   styles: {
@@ -128,7 +128,7 @@ function watching() {
   watch(paths.html.dest).on('change', browsersync.reload);
   watch(paths.html.src, html);
   watch(paths.styles.src, styles);
-  watch(paths.styles.src, styles);
+  watch(paths.scripts.src, scripts);
   watch(paths.images.src, images);
 }
 

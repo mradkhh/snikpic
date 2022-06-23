@@ -1,12 +1,12 @@
 // Global CSS-files imports
+@import './reset';
 @import './vars';
 @import './global';
 
 // Sections or Pages SCSS-files imports
 @import './header';
-@import './footer';
+@import './sections/hero';
+@import './sections//categories';
+// @import './footer';
 
 // Libs
-h1 {
-  color: yellow;
-}

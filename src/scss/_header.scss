@@ -1,0 +1,28 @@
+#header {
+  padding-block: 32px;
+
+  .header {
+
+    .btn {
+      &__outline {
+        margin-left: 16px;
+
+        .arrow-path {
+          fill: $grayDark;
+        }
+
+        &:hover {
+          .arrow-path {
+              fill: $primary;
+          }
+        }
+      }
+
+      &.btn__secondary {
+        margin-left: 100px;
+      }
+    }
+  }
+
+
+}

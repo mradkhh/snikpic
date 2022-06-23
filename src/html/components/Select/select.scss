@@ -1,0 +1,43 @@
+$height: 46px;
+
+.select {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+
+  &__backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: transparent;
+    z-index: -1;
+    display: none;
+  }
+
+  &.open {
+    .select__dropdown {
+      display: block;
+    }
+
+    .select__input {
+      border-bottom: none;
+
+    }
+
+    .select__list {
+      .select__item {
+        padding: 10px;
+        border-bottom: 1px solid #000;
+        cursor: pointer;
+      }
+
+      &.selected {
+        background-color: beige;
+      }
+
+      &:hover {
+        background-color: #eee;
+        transition: .15 background-color ease-in;
+      }
+    }
+  }
+}

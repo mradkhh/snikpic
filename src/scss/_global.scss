@@ -3,17 +3,16 @@
   max-width: ($containerWidth + $containerPadding) + px;
   width: 100%;
   margin-inline: auto;
-  padding-inline: $containerSidePadding + px;
-
+  padding-inline: 40px;
 
   @media (max-widht: $breakpoint1450) {
-      max-width: 1200px;
+    max-width: 1200px;
   }
   @media (max-widht: $breakpoint992) {
-      max-width: 960px;
+    max-width: 960px;
   }
   @media (max-widht: $breakpoint768) {
-      max-width: 740px;
+    max-width: 740px;
   }
   @media (max-widht: $breakpoint480) {
     max-width: none;
@@ -29,6 +28,208 @@ body {
   }
 }
 
+// BUtton
+.btn {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  &__primary {
+    padding: 16px 40px;
+    background-color: $primary;
+    border-radius: $radius;
+    box-shadow: $btn-shadow;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    color: $white;
+    &:hover {
+      background-color: $primaryDark;
+    }
+  }
+
+  &__secondary {
+    background-color: $primaryLight;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 16px;
+    color: $primary;
+    transition: all $transiton;
+    &:hover {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+
+  &__outline {
+    padding: 0;
+    color: $grayDark;
+    font-weight: 700;
+    font-size: 16px;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+// Select
+$height: 46px;
+
+.select {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+
+  &__backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: transparent;
+    z-index: -1;
+    display: none;
+  }
+
+  &.open {
+    .select__dropdown {
+      display: block;
+    }
+
+    .select__input {
+      border-bottom: none;
+    }
+
+    .select__list {
+      .select__item {
+        padding: 10px;
+        border-bottom: 1px solid #000;
+        cursor: pointer;
+      }
+
+      &.selected {
+        background-color: beige;
+      }
+
+      &:hover {
+        background-color: #eee;
+        transition: 0.15 background-color ease-in;
+      }
+    }
+  }
+}
+
+// Layout
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.j-center {
+  justify-content: center;
+}
+
+.j-start {
+  justify-content: start;
+}
+
+.gap-40 {
+  gap: 40px;
+}
+
+.gap-4 {
+  gap: 4px;
+}
+
+.left-auto {
+  margin-left: auto;
+}
+
+.right-auto {
+  margin-right: auto;
+}
+
+// reset
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: $grayDark;
+  font-weight: 400;
+  font-size: 14px;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 110%;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 110%;
+  letter-spacing: -0.03em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  & > span:first-child {
+    font-weight: 700;
+    color: $primary2;
+  }
+
+  & > span:last-child {
+    font-weight: 700;
+    color: $primary;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 180%;
+  color: $neutral;
+}
+
+input {
+  outline: none;
+  width: 100%;
+  padding: 14px 20px;
+  background: $white;
+  border: 1px solid #dfe8fa;
+  border-radius: $radius;
+  font-weight: 400;
+  font-size: 18px;
+  color: $primary2;
+  margin-bottom: 16px;
+
+  &::placeholder {
+    color: $grayDark;
+  }
+}
+
 // Animations
 // Fade
 @keyframes fade {
@@ -36,6 +237,7 @@ body {
     opacity: 0;
   }
   100% {
-    opacity: 1;
+    opacity: 30px;
+    background-color: #fff;
   }
 }
